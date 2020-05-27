@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jex-poi" />
+        <module name="SpringBoot-MySQL-Excel" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jex-poi" target="1.8" />
+      <module name="SpringBoot-MySQL-Excel" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="jex-poi" options="-parameters" />
+      <module name="SpringBoot-MySQL-Excel" options="-parameters" />
     </option>
   </component>
 </project>

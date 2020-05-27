@@ -11,7 +11,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="jex-poi" />
+          <element id="module-output" name="SpringBoot-MySQL-Excel" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-aop:1.5.3.RELEASE" />
@@ -86,7 +86,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/jex-poi-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="jex-poi/web/Web" />
+      <element id="javaee-facet-resources" facet="SpringBoot-MySQL-Excel/web/Web" />
     </root>
   </artifact>
 </component>
