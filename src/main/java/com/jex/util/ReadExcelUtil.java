@@ -1,6 +1,6 @@
 package com.jex.util;
 
-import com.jex.model.SoftwareMysql;
+import com.jex.model.Student;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -12,8 +12,8 @@ import java.io.InputStream;
 import java.util.*;
 
 public class ReadExcelUtil {
-    public static List<SoftwareMysql> readExcelContentz(MultipartFile file) throws Exception {
-        List<SoftwareMysql> content = new ArrayList<>();
+    public static List<Student> readExcelContentz(MultipartFile file) throws Exception {
+        List<Student> content = new ArrayList<>();
         Map<String,Integer> map = new HashMap();
         // 上传文件名
         Workbook wb = getWb(file);
@@ -23,20 +23,33 @@ public class ReadExcelUtil {
         Sheet sheet = wb.getSheetAt(0);
         // 得到总行数
         int rowNum = sheet.getLastRowNum();
+        System.out.println("rowNum:" + rowNum);
         Row row = sheet.getRow(0);
         int colNum = row.getPhysicalNumberOfCells();
+        colNum = colNum - 1;
+        System.out.println("colNum:" +colNum);
+
+
+
         // 正文内容应该从第二行开始,第一行为表头的标题
-        for (int i = 1; i <= rowNum; i++) {
-            SoftwareMysql m = new SoftwareMysql();
+        for (int i = 2; i <= rowNum; i++) {
+            Student m = new Student();
             row = sheet.getRow( i);// 拿到当前 行
             for (int j = 0; j < colNum ; j++) {
              // 解析当前行的列
                 if(j == 0){
-                    m.setName(row.getCell(j).toString());
+//                    m.setName(row.getCell(j).toString());
+                    m.setId(row.getCell(j).toString());
                 }else if(j == 1){
-                    m.setType(row.getCell(j).toString());
-                }else {
-                    m.setChargeType(row.getCell(j).toString());
+                    m.setSno(row.getCell(j).toString());
+//                    m.set(row.getCell(j).toString());
+                }else if(j == 2){
+                    m.setName(row.getCell(j).toString());
+                }else if(j == 3){
+                    m.setGrade(row.getCell(j).toString());
+                }
+                else {
+                    m.setComment(row.getCell(j).toString());
                 }
             }
             content.add(m);
